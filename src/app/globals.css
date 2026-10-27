@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Theme ported from vinodpatel.com.fj global.css (Tailwind v4 -> v3).
+   Final (effective) values from that file are used: primary red
+   356 93% 35%, foreground 0 0% 7%, Inter font.
+------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-family-heading: var(--font-sans);
+  --font-family-body: var(--font-sans);
+  --font-family-mono: var(--font-mono);
+  --font-variation-settings-body: 'slnt' 0;
+  --font-variation-settings-heading: 'slnt' 0;
+
+  --background: 0 0% 100%;
+  --foreground: 0 0% 7%;
+  --primary: 356 93% 35%;
+  --primary-foreground: 0 0% 100%;
+  --muted: 0 20% 96%;
+  --muted-foreground: 0 0% 45%;
+  --border: 0 0% 90%;
+  --input: 0 0% 95%;
+  --ring: 357 95% 45%;
+  --radius: 0.5rem;
+
+  --success: 116 78% 65%;
+  --error: 0 100% 60%;
+  --warning: 40 100% 60%;
+  --info: 220 70% 45%;
+  --contrast-100: 0 0% 93%;
+  --contrast-200: 0 0% 82%;
+  --contrast-300: 0 0% 70%;
+  --contrast-400: 0 0% 54%;
+  --contrast-500: 0 0% 34%;
+
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Brand scale built around the primary red (600 = primary) */
+  --brand: var(--primary);
+  --brand-foreground: var(--primary-foreground);
+  --brand-25: 356 100% 98%;
+  --brand-50: 356 100% 96%;
+  --brand-100: 356 95% 92%;
+  --brand-200: 356 93% 84%;
+  --brand-300: 356 92% 72%;
+  --brand-400: 356 92% 58%;
+  --brand-500: 357 95% 45%;
+  --brand-600: 356 93% 35%;
+  --brand-700: 356 93% 28%;
+  --brand-800: 356 90% 22%;
+  --brand-900: 356 85% 16%;
+  --brand-950: 356 80% 10%;
+  --brand-1000: 356 75% 6%;
+
+  --accent-500: 357 95% 45%;
+  --accent-600: 356 93% 35%;
+
+  --text-primary: #121212;
+  --text-secondary: #525252;
+  --text-tertiary: #737373;
+  --text-disabled: #a3a3a3;
+  --text-placeholder: #a3a3a3;
+  --text-placeholder-subtle: #d4d4d4;
+  --text-white: #ffffff;
+
+  --alpha-white-90: rgb(255 255 255 / 0.9);
+  --alpha-white-80: rgb(255 255 255 / 0.8);
+  --alpha-white-70: rgb(255 255 255 / 0.7);
+  --alpha-white-60: rgb(255 255 255 / 0.6);
+  --alpha-white-50: rgb(255 255 255 / 0.5);
+  --alpha-white-40: rgb(255 255 255 / 0.4);
+  --alpha-white-30: rgb(255 255 255 / 0.3);
+  --alpha-white-20: rgb(255 255 255 / 0.2);
+  --alpha-white-10: rgb(255 255 255 / 0.1);
+  --alpha-black-10: rgb(0 0 0 / 0.1);
+  --alpha-black-20: rgb(0 0 0 / 0.2);
+  --alpha-black-30: rgb(0 0 0 / 0.3);
+  --alpha-black-40: rgb(0 0 0 / 0.45);
+
+  --gray-25: #fcfcfd; --gray-50: #fafafa; --gray-100: #f5f5f5; --gray-200: #e5e5e5; --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3; --gray-500: #737373; --gray-600: #525252; --gray-700: #404040; --gray-800: #262626;
+  --gray-900: #171717; --gray-950: #0a0a0a;
+  --error-500: #ef4444; --error-600: #dc2626; --error-700: #b91c1c;
+  --warning-500: #f59e0b; --warning-600: #d97706;
+  --success-500: #22c55e; --success-600: #16a34a;
+
+  /* Font sizes (xl+ are fluid, as in the site's global.css) */
+  --font-size-xl: clamp(1.125rem, 1.2vw + 0.9rem, 1.25rem);
+  --font-size-2xl: clamp(1.25rem, 1.3vw + 1rem, 1.5rem);
+  --font-size-3xl: clamp(1.5rem, 1.5vw + 1.2rem, 1.875rem);
+  --font-size-4xl: clamp(1.75rem, 2vw + 1.4rem, 2.25rem);
+  --font-size-5xl: clamp(2rem, 2.5vw + 1.6rem, 3rem);
+  --font-size-6xl: clamp(2.5rem, 3vw + 2rem, 3.75rem);
+  --font-size-7xl: clamp(3rem, 4vw + 2.5rem, 4.5rem);
+  --font-size-8xl: clamp(4rem, 5vw + 3rem, 6rem);
+  --font-size-9xl: clamp(5rem, 6vw + 4rem, 8rem);
+
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+@layer base {
+  * { border-color: hsl(var(--border)); }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a, button { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  input[type="checkbox"], input[type="radio"] { accent-color: hsl(var(--primary)); }
+}
+
+/* From the site's global.css */
+input[list]::-webkit-calendar-picker-indicator { display: none !important; }
+
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.custom-scrollbar { scrollbar-width: thin; scrollbar-color: #d0d5dd #f2f4f7; }
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #F2F4F7; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #D0D5DD; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #98A2B3; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700; }
+  .btn-accent { @apply btn bg-brand-600 text-white hover:bg-brand-700; }
+  .btn-outline { @apply btn border border-gray-300 bg-white text-gray-700 hover:bg-gray-50; }
+  .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700; }
+  .input { @apply w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100; }
+  .label { @apply mb-1 block text-sm font-medium text-gray-700; }
+  .card { @apply rounded-lg border border-gray-200 bg-white shadow-sm; }
+  .th { @apply px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-gray-500; }
+  .td { @apply px-3 py-3 text-sm; }
+}

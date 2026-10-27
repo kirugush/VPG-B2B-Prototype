@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: VPG B2B API scaffold (not deployed or validated against AWS).
+Globals: { Function: { Runtime: nodejs20.x, Timeout: 5, MemorySize: 256 } }
+Resources:
+  Api: { Type: AWS::Serverless::Api, Properties: { StageName: v1, Auth: { ApiKeyRequired: true } } }
+  CreditFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/credit.handler
+      Events:
+        Account: { Type: Api, Properties: { RestApiId: !Ref Api, Path: /credit/account, Method: get } }
+        Eligibility: { Type: Api, Properties: { RestApiId: !Ref Api, Path: /credit/eligibility, Method: post } }

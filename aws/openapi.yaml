@@ -1,0 +1,14 @@
+openapi: 3.0.3
+info: { title: VPG B2B API (design), version: 0.1.0, description: "Design contract only. Handlers in aws/src are scaffolds and are NOT deployed or tested against AWS." }
+security: [ { ApiKey: [] } ]
+components:
+  securitySchemes: { ApiKey: { type: apiKey, in: header, name: x-api-key } }
+paths:
+  /credit/account:
+    get: { summary: Company credit account (source of truth: ERP/BC B2B), parameters: [ { name: companyId, in: query, required: true, schema: { type: string } } ], responses: { "200": { description: CreditAccount }, "503": { description: Source unavailable - caller must NOT treat as approval } } }
+  /credit/eligibility:
+    post: { summary: Idempotent eligibility decision, requestBody: { required: true, content: { application/json: { schema: { type: object, required: [companyId, amount, idempotencyKey], properties: { companyId: { type: string }, amount: { type: number }, idempotencyKey: { type: string } } } } } }, responses: { "200": { description: CreditDecision }, "400": { description: Validation }, "429": { description: Rate limited } } }
+  /favorites: { get: { summary: List company/user favorites, responses: { "200": { description: ok } } }, put: { summary: Replace a list, responses: { "200": { description: ok } } } }
+  /bulk/submissions: { post: { summary: Record a bulk submission (never creates an order), responses: { "201": { description: created } } } }
+  /invoices/{id}/pdf: { get: { summary: Authorised short-lived signed URL for an invoice PDF, parameters: [ { name: id, in: path, required: true, schema: { type: string } } ], responses: { "200": { description: signed url }, "403": { description: not your company } } } }
+  /audit: { get: { summary: Company audit trail (Admin), responses: { "200": { description: ok } } } }
